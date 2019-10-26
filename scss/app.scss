@@ -1,0 +1,107 @@
+// Google fonts import
+@import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600&display=swap');
+// Atomic Design SCSS import
+@import 'abstracts/base';
+@import 'atoms/base';
+@import 'molecules/base';
+@import 'templates/base';
+
+
+// Cloudtion | -> app.css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #155abe;
+  background-image: radial-gradient(circle, #1488CC 0%, #2B32B2 100%);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img {
+  @include user-select-none;
+}
+
+a[href="register"], a[href="login"] {
+  margin-left: rem-calc(4);
+}
+
+.grid-x.top-section {
+  margin-bottom: rem-calc(20);
+  margin-top: rem-calc(20);
+
+  & > .cell {
+    height: rem-calc(90);
+
+    @include set-breakpoint(smartphone, down) {
+      &:nth-child(1) {
+        order: 1;
+      }
+
+      &:nth-child(2) {
+        order: 3;
+      }
+
+      &:nth-child(3) {
+        order: 2;
+      }
+    }
+
+    &.page-title {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+
+      .title-container {
+        background: $white;
+        width: max-content;
+        height: rem-calc(45.5);
+        border-radius: rem-calc(3);
+        padding: 0 rem-calc(22);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: rem-calc(16);
+        @include set-breakpoint(smartphone, down) {
+          margin-left: 0;
+          width: 100%;
+        }
+      }
+    }
+
+    &.user-menu {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+
+    .dropdown-container {
+    }
+
+    .logo-container {
+      background: $white;
+      width: max-content;
+      height: rem-calc(45.5);
+      border-radius: rem-calc(3);
+      padding: 0 rem-calc(22);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include set-breakpoint(mobile, down) {
+        width: min-content;
+        padding: 0 rem-calc(24);
+      }
+
+      span {
+        text-align: right;
+      }
+
+    }
+
+  }
+}

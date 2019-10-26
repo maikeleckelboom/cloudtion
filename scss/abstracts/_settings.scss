@@ -1,0 +1,197 @@
+/* Breakpoints */
+$breakpoints: (
+        mobile: (
+                min: none,
+                max: 479px
+        ),
+        smartphone: (
+                min: 480px,
+                max: 639px
+        ),
+        phablet: (
+                min: 640px,
+                max: 767px
+        ),
+        tablet: (
+                min: 768px,
+                max: 1023px
+        ),
+        laptop: (
+                min: 1024px,
+                max: 1199px
+        ),
+        desktop: (
+                min: 1200px,
+                max: 1439px
+        ),
+        widescreen: (
+                min: 1440px,
+                max: none
+        ),
+);
+
+// Fonts
+$fonts: (
+        primary: (
+                font-family: ('ff-tisa-sans-web-pro', serif),
+                font-weight: (
+                        regular: 400,
+                        bold: 500
+                )
+        ),
+        iconset: (
+                font-family: ('FontAwesome'),
+                font-weight: (
+                        regular: normal
+                )
+        )
+);
+
+// Headers
+$headers: (
+        h1: (
+                font-family: primary,
+                font-weight: bold,
+                font-size: xxxlarge,
+                line-height: xsmall,
+                color: darkblue,
+                margin-bottom: large
+        ),
+        h2: (
+                font-family: primary,
+                font-weight: bold,
+                font-size: xxlarge,
+                line-height: xsmall,
+                color: darkblue,
+                margin-bottom: medium
+        ),
+        h3: (
+                font-family: primary,
+                font-weight: bold,
+                font-size: xlarge,
+                line-height: small,
+                color: darkblue,
+                margin-bottom: medium
+        ),
+        h4: (
+                font-family: primary,
+                font-weight: bold,
+                font-size: large,
+                line-height: small,
+                color: darkblue,
+                margin-bottom: medium
+        ),
+        h5: (
+                font-family: primary,
+                font-weight: bold,
+                font-size: medium,
+                line-height: medium,
+                color: inherit,
+                margin-bottom: xsmall
+        ),
+        h6: (
+                font-family: primary,
+                font-weight: semi-bold,
+                font-size: medium,
+                line-height: medium,
+                color: inherit,
+                margin-bottom: xsmall
+        )
+);
+
+// Buttons
+$buttons: (
+        primary: (
+                background-color: white,
+                color: darkred,
+                border-color: darkred
+        ),
+        secondary: (
+                background-color: royalblue,
+                color: white
+        )
+);
+
+$button-sizes: (
+        small: (
+                font-size: xsmall,
+                height: 1.8125rem
+        ),
+        medium: (
+                font-size: medium,
+                height: 2.25rem
+        ),
+        large: (
+                font-size: large,
+                height: 2.75rem
+        )
+);
+
+$font-weights: (
+        small: (
+                font-size: xsmall,
+                height: 1.8125rem
+        ),
+        medium: (
+                font-size: medium,
+                height: 2.25rem
+        ),
+        large: (
+                font-size: large,
+                height: 2.75rem
+        )
+);
+
+// Colors
+$colors: (
+  // Highlights 2019 colors
+        purple: #672f8a,
+  // Apple Colors
+        iRed: #ff3b30,
+        iYellow: #ffcc00,
+        iGreen: #4cd964,
+        iTealblue: #5ac8fa,
+        iBlue: #007aff,
+        iPurple: #5856d6,
+        iPink: #ff2d55,
+        whitegrey: #d1dae0,
+        base-green: #2ab27b,
+        artist-background: #313131
+);
+
+
+// Font-sizes
+$font-sizes: (
+        initial: initial,
+        xxsmall: 0.75rem, /* 12px */
+        xsmall: 0.8125rem, /* 13px */
+        small: 0.875rem, /* 14px */
+        medium: 1rem, /* 16px */
+        large: 1.25rem, /* 20px */
+        xlarge: 1.75rem, /* 28px */
+        xxlarge: 2.625rem, /* 42px */
+        xxxlarge: 3.5rem /* 56px */
+);
+
+// Line-heights
+$line-heights: (
+        normal: normal,
+        xsmall: 1,
+        small: 1.125,
+        medium: 1.1875,
+        large: 1.25,
+        xlarge: 1.375
+);
+
+// Spacings
+$spacings: (
+        none: 0,
+        xxsmall: 0.25rem, /*  4px */
+        xsmall: 0.5rem, /*  8px */
+        small: 0.75rem, /* 12px */
+        medium: 1rem, /* 16px */
+        large: 1.5rem, /* 24px */
+        xlarge: 2.25rem, /* 36px */
+        xxlarge: 3rem, /* 48px */
+        xxxlarge: 6rem /* 96px */
+);

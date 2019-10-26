@@ -1,0 +1,150 @@
+// Functions
+@function rem-calc($val) {
+  $result: $val / 16;
+  @return #{$result}rem;
+}
+
+// Variables
+$schemeColor-1: #FD940A;
+$schemeColor-2: #F9A72B;
+$schemeColor-3: #f79d17;
+$schemeColor-4: #f68121;
+
+//$schemeColor-3: #ffae35;
+
+$black: #181818;
+$white: #ffffff;
+
+// Mixins
+@mixin box-shadow {
+  box-shadow: 0 rem-calc(2) rem-calc(1) rgba(0, 0, 0, 0.15);
+}
+
+@mixin flex-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin user-select-none {
+  -webkit-user-select: none; // Chrome all / Safari all
+  -moz-user-select: none; // Firefox all
+  -ms-user-select: none; // IE 10+
+  user-select: none; // Default
+}
+
+@mixin user-select-initial {
+  -webkit-user-select: initial;
+  -moz-user-select: initial;
+  -ms-user-select: initial;
+  user-select: initial;
+}
+
+// set-breakpoints
+@mixin set-breakpoint($object, $break: only) {
+  @if map-has-key($breakpoints, $object) {
+    @if $break == only {
+      $val1 : map-get(map-get($breakpoints, $object), min);
+      $val2 : map-get(map-get($breakpoints, $object), max);
+      @if $object == mobile {
+        @media screen and (max-width: $val2) {
+          @content;
+        }
+      } @elseif $object == widescreen {
+        @media screen and (min-width: $val1) {
+          @content;
+        }
+      } @else {
+        @media screen and (min-width: $val1) and (max-width: $val2) {
+          @content;
+        }
+      }
+    } @elseif $break == up {
+      $val : map-get(map-get($breakpoints, $object), min);
+      @if $object != mobile {
+        @media screen and (min-width: $val) {
+          @content;
+        }
+      } @else {
+        @content;
+      }
+    } @elseif $break == down {
+      $val : map-get(map-get($breakpoints, $object), max);
+      @if $object != widescreen {
+        @media screen and (max-width: $val) {
+          @content;
+        }
+      } @else {
+        @content;
+      }
+    }
+  }
+  @else {
+    @warn 'Unknown {$object} in {$breakpoints}';
+  }
+}
+
+
+/* Typography */
+@mixin set-fonttype($object: primary, $val: regular) {
+  @if map-has-key($fonts, $object) {
+    font-family: map-get(map-get($fonts, $object), font-family);
+    font-weight: map-get(map-get(map-get($fonts, $object), font-weight), $val);
+  }
+  @else {
+    @warn 'Unknown {$object} in {$fonts}';
+  }
+}
+
+@mixin set-header($object) {
+  @if map-has-key($headers, $object) {
+    $val1 : map-get(map-get($headers, $object), font-family);
+    $val2 : map-get(map-get($headers, $object), font-weight);
+    $val3 : map-get(map-get($headers, $object), font-size);
+    $val4 : map-get(map-get($headers, $object), line-height);
+    $val5 : map-get(map-get($headers, $object), color);
+    $val6 : map-get(map-get($headers, $object), margin-bottom);
+    font-family: map-get(map-get($fonts, $val1), font-family);
+    font-weight: map-get(map-get(map-get($fonts, $val1), font-weight), $val2);
+    font-size: map-get($font-sizes, $val3);
+    line-height: map-get($line-heights, $val4);
+    color: map-get($colors, $val5);
+    margin-bottom: map-get($spacings, $val6);
+  }
+
+  @else {
+    @warn 'Unknown {$object} in {$headers}';
+  }
+}
+
+
+/* Buttons */
+@mixin set-buttontype($object: primary) {
+  @if map-has-key($buttons, $object) {
+    $val1 : map-get(map-get($buttons, $object), background-color);
+    $val2 : map-get(map-get($buttons, $object), color);
+    $val3 : map-get(map-get($buttons, $object), border-color);
+    background-color: map-get($colors, $val1);
+    color: map-get($colors, $val2);
+    border-color: map-get($colors, $val3);
+  }
+
+  @else {
+    @warn 'Unknown {$object} in {$buttons}';
+  }
+}
+
+@mixin set-buttonsize($object: medium) {
+  @if map-has-key($button-sizes, $object) {
+    $val1 : map-get(map-get($button-sizes, $object), font-size);
+    $val2 : map-get(map-get($button-sizes, $object), height);
+    font-size: map-get($font-sizes, $val1);
+    line-height: $val2;
+    min-height: $val2;
+    padding: 0 calc(#{$val2} / 2);
+  }
+
+  @else {
+    @warn 'Unknown {$object} in {$button-sizes}';
+  }
+}

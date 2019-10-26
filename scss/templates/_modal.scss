@@ -1,0 +1,177 @@
+@import '../abstracts/base';
+
+span[aria-hidden="true"] {
+  //display: none;
+}
+
+.reveal {
+  top: 40% !important;
+  width: auto !important;
+  transform: translate(0%, -40%);
+  overflow: initial;
+}
+
+.reveal-overlay {
+  overflow-y: initial;
+}
+
+#close-button {
+  display: flex;
+  cursor: pointer;
+  border: solid rem-calc(1) $black;
+  width: max-content;
+  padding: rem-calc(4) rem-calc(12);
+  border-radius: rem-calc(4);
+  margin-top: rem-calc(32);
+
+  span {
+    margin-left: rem-calc(4);
+  }
+
+  img {
+    margin-right: rem-calc(8);
+  }
+}
+
+.modal-container {
+  background: $white;
+  max-width: rem-calc(1000);
+  margin: 0 auto;
+  position: relative;
+  //display: flex;
+  align-items: center;
+  margin: rem-calc(18);
+
+  @media screen and (max-width: rem-calc(640)) {
+    //height: 100%;
+    //margin: 0;
+  }
+
+  .form-leader {
+    display: block;
+  }
+
+  .callout {
+    padding: 0 rem-calc(14);
+    margin: rem-calc(8) 0 rem-calc(14) rem-calc(8);
+  }
+
+  .grid-x {
+
+    .cell {
+      &:nth-child(1) {
+        h4, p {
+          //margin-bottom: rem-calc(24);
+        }
+      }
+    }
+
+    .button-group {
+      display: flex;
+      height: rem-calc(46);
+      margin: rem-calc(22) 0;
+
+      button {
+        margin-right: rem-calc(4);
+      }
+
+      span {
+        margin-left: rem-calc(4);
+      }
+
+      button, span.reset {
+        width: 100%;
+
+        &.delete-btn {
+          width: rem-calc(300);
+        }
+
+        img {
+          height: rem-calc(24);
+          position: absolute;
+          right: rem-calc(22);
+          margin-top: rem-calc(11);
+        }
+      }
+
+      input {
+        width: 100%;
+        height: 100%;
+        background: $white;
+        border: solid rem-calc(1) $black;
+        cursor: pointer;
+        padding-left: rem-calc(12);
+        text-align: left;
+        border-radius: rem-calc(2);
+      }
+    }
+  }
+}
+
+
+table.server-choices {
+  tbody td, tbody th {
+    padding: rem-calc(14) 0rem;
+  }
+
+  table, thead, tbody, tr, td, tfoot {
+    border: none;
+  }
+}
+
+.output-container {
+  display: flex;
+  align-items: center;
+  height: rem-calc(48);
+  transition: ease-in 200ms;
+
+  .server-logo {
+    margin: rem-calc(12);
+    height: rem-calc(32);
+
+    &.linux, &.centos {
+      height: rem-calc(36);
+    }
+
+    &.centos {}
+    &.mariadb {
+      margin-left: rem-calc(-4);
+    }
+    &.ubuntu {}
+  }
+}
+
+.output-1, .output-2, .output-3, .output-4 {
+  position: absolute;
+  display: grid;
+  grid-template-columns: rem-calc(84) 1fr;
+  align-items: center;
+
+  span {
+    font-weight: 600;
+  }
+}
+
+form.delete-form {
+  position: relative;
+  top: rem-calc(14);
+}
+
+.form-leader {
+  &.for-delete {
+    display: flex;
+    justify-content: center;
+    margin: rem-calc(5) 0 rem-calc(8);
+  }
+
+  .form-title {
+    position: absolute;
+    margin-left: rem-calc(-204);
+    z-index: 11;
+  }
+}
+
+.spinner-icon {
+  height: rem-calc(182);
+}
+

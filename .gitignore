@@ -1,0 +1,14 @@
+# IDEA files
+.idea/
+
+# VS code files
+.vscode/
+
+# Sass
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# dev
+accounts.json

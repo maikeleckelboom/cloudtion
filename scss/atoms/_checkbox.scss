@@ -1,0 +1,91 @@
+@import "../abstracts/base";
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
+  @include user-select-none;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  //background: #F87DA9;
+  background: #5282e1;
+  position: absolute;
+  top: 3px;
+  left: 2.5px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+
+//input[type=checkbox] + label:before {
+//  content: "\2714";
+//  border: 0.1em solid #000;
+//  border-radius: 0.2em;
+//  display: inline-block;
+//  width: rem-calc(22);
+//  height:  rem-calc(22);
+//  padding-left: 0.2em;
+//  padding-bottom: 0.3em;
+//  margin-right: 0.2em;
+//  vertical-align: bottom;
+//  color: transparent;
+//  transition: .2s;
+//}
+//
+//input[type=radio] + label:active:before {
+//  transform: scale(0);
+//}
+//
+//input[type=radio]:checked + label:before {
+//  background-color: MediumSeaGreen;
+//  border-color: MediumSeaGreen;
+//  color: #fff;
+//}
+//
+//input[type=radio]:disabled + label:before {
+//  transform: scale(1);
+//  border-color: #aaa;
+//}
+//
+//input[type=radio]:checked:disabled + label:before {
+//  transform: scale(1);
+//  background-color: #bfb;
+//  border-color: #bfb;
+//}

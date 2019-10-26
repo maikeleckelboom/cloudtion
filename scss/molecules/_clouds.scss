@@ -1,0 +1,143 @@
+@import '../abstracts/base';
+
+// Cloud Durations
+$durations: (
+        33s, 34s, 20s, 26s, 27s, 28s, 28s, 29s, 30s, 31s
+        21s, 22s, 24s, 22s, 25s, 26s, 25s, 24s, 23s, 22s
+);
+
+$durations-foreground: (
+        21s, 22s, 24s, 22s, 25s, 26s, 25s, 24s, 23s, 22s
+);
+
+$durations-background: (
+        43s, 44s, 40s, 56s, 47s, 38s, 48s, 49s, 50s, 51s
+);
+
+
+@mixin durations {
+  @for $i from 1 through length($durations) {
+    &:nth-child(#{$i}) {
+      animation-duration: nth($durations, $i);
+    }
+  }
+}
+
+@mixin durations-foreground {
+  @for $i from 1 through length($durations) {
+    &:nth-child(#{$i}) {
+      animation-duration: nth($durations, $i);
+    }
+  }
+}
+
+@mixin durations-background {
+  @for $i from 1 through length($durations) {
+    &:nth-child(#{$i}) {
+      animation-duration: nth($durations, $i);
+    }
+  }
+}
+
+// Cloud Offsets
+$offsets: (
+        rem-calc(80), rem-calc(170), rem-calc(160), rem-calc(290), rem-calc(160),
+        rem-calc(-40), rem-calc(-50), rem-calc(-40), rem-calc(-230), rem-calc(-20)
+);
+
+@mixin offsets {
+  @for $i from 1 through length($offsets) {
+    &:nth-child(#{$i}) {
+      position: relative;
+      top: nth($offsets, $i);
+    }
+  }
+}
+
+
+// Cloud Sizes
+$sizes: (
+        rem-calc(170), rem-calc(90), rem-calc(66), rem-calc(94), rem-calc(162),
+        rem-calc(46), rem-calc(128), rem-calc(34), rem-calc(88), rem-calc(82)
+);
+
+$sizes-background: (
+        rem-calc(46), rem-calc(128), rem-calc(34), rem-calc(88), rem-calc(82)
+);
+
+$sizes-foreground: (
+        rem-calc(170), rem-calc(90), rem-calc(66), rem-calc(94), rem-calc(162)
+);
+
+@for $i from 1 through length($sizes) {
+  .size-#{$i} {
+    height: nth($sizes, $i);
+    width: nth($sizes, $i);
+  }
+}
+
+// Cloud Keyframes
+@keyframes Float {
+  from {
+    transform: translateX(40vw) translateZ(0);
+  }
+  to {
+    transform: translateX(-0vw) translateZ(0);
+  }
+}
+
+@keyframes FadeFloat {
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+}
+
+#clouds {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  animation: FadeIn 4s ease-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+
+  .cloud {
+    background-image: url("../files/cloud.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    user-select: none;
+
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-name: Float, FadeFloat;
+
+    @include offsets;
+
+    &.front, &.back {
+      //@include durations;
+    }
+
+    &.front {
+      opacity: 0.9;
+      min-height: rem-calc(240);
+      @include durations-foreground;
+    }
+
+    &.back {
+      opacity: 0.6;
+      min-height: rem-calc(42);
+      @include durations-background;
+    }
+
+  }
+}

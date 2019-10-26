@@ -1,0 +1,85 @@
+@import '../abstracts/base';
+
+body.login, body.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login-button {
+  padding: rem-calc(10);
+    svg {
+      position: absolute;
+
+      right: 10px;
+
+      top: 15px;
+    }
+  }
+
+  .grid-container {
+    > div {
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cloudtion-entry {
+      max-width: rem-calc(580);
+      min-height: rem-calc(340);
+      min-width: rem-calc(440);
+      padding: rem-calc(18) rem-calc(28);
+
+      @media screen and (max-width: rem-calc(767)) {
+        min-width: rem-calc(320);
+        padding: rem-calc(4);
+      }
+
+      > .cell {
+        width: 100%;
+        height: 100%;
+        padding: rem-calc(12);
+
+        .top-row {
+          top: rem-calc(-8);
+          position: relative;
+        }
+
+        h1 {
+          font-size: rem-calc(24);
+          margin: rem-calc(8) 0;
+        }
+
+        p {
+          width: rem-calc(144);
+          margin: rem-calc(12) 0;
+          text-align: center;
+        }
+      }
+
+      form {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      img {
+        height: rem-calc(88);
+      }
+
+      .form-group button {
+        top: rem-calc(8);
+      }
+
+      .button-container {
+        position: static;
+        margin-top: rem-calc(45);
+        a {
+          top: 0;
+          margin-top: rem-calc(22);
+          position: static;
+          width: 100%;
+        }
+
+      }
+    }
+  }
+}

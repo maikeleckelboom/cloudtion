@@ -1,0 +1,220 @@
+@import '../abstracts/base';
+
+.table-container {
+  overflow-x: auto;
+  border-radius: rem-calc(2);
+}
+
+table.server-table {
+  border-collapse: collapse;
+  overflow-x: auto;
+  margin: 0;
+  border: none;
+
+  tbody, tfoot, thead {
+    border: none;
+  }
+
+  tbody {
+    border: none;
+
+    td {
+      .deleteServer, .resetServer {
+        cursor: pointer;
+      }
+
+      a {
+        @include user-select-none;
+      }
+
+      img {
+        width: rem-calc(28);
+        height: rem-calc(28);
+      }
+
+      img.status {
+        width: rem-calc(22);
+        height: rem-calc(22);
+      }
+    }
+
+    td, th {
+      text-align: center;
+    }
+  }
+
+}
+
+.stat-data {
+  display: none;
+  margin-left: rem-calc(4);
+}
+
+.action-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $black;
+  &:hover, &:focus {
+    background: $black;
+  }
+  svg {
+    margin: 0;
+  }
+
+  &.resetServer {
+    background: $black;
+  }
+  &.deleteServer {
+    background: $black;
+  }
+  &.stopServer {
+    background: $black;
+  }
+  &.startServer {
+    background: $black;
+  }
+}
+
+.button {
+  margin: 0;
+  span {}
+}
+
+.label.warning {
+  color: white;
+}
+
+.stat-data {
+  display: none;
+  margin-left: rem-calc(4);
+}
+
+tfoot th, thead th {
+  text-align: center;
+}
+
+@media screen and (max-width: rem-calc(640)) {
+
+  table.transform {
+    .button img {
+      display: none;
+    }
+
+    .stat-data {
+      display: inline-block;
+    }
+
+    // Force table to not behave like a table anymore
+    thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    tbody, tfoot, thead {
+      background: unset;
+      border: none !important;
+    }
+
+    tfoot td, tfoot th, thead td, thead th {
+      text-align: center;
+    }
+
+    tbody, tfoot, thead {
+      border: none;
+    }
+
+    // Hide table headers (but not display: none; for accessibility)
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr {
+      margin-bottom: rem-calc(10);
+    }
+
+    td {
+      text-align: left !important;
+      padding-left: 52% !important;
+      border: none;
+    }
+
+    td {
+      // Behave like a "row"
+      border: none;
+      border-bottom: rem-calc(1) solid #eee;
+      position: relative;
+      padding-left: 50%;
+      background: white;
+    }
+
+    td:before {
+      position: absolute;
+      top: rem-calc(10);
+      left: rem-calc(6);
+      width: 45%;
+      padding-right: rem-calc(10);
+      white-space: nowrap;
+      text-align: left;
+    }
+
+    td:before {
+      font-weight: 600;
+    }
+
+    // Label the data
+    td:nth-of-type(1):before {
+      content: "Status";
+    }
+
+    td:nth-of-type(2):before {
+      content: "Type";
+    }
+
+    td:nth-of-type(3):before {
+      content: "Server ID";
+    }
+
+    td:nth-of-type(4):before {
+      content: "Verwijder";
+    }
+
+    td:nth-of-type(5):before {
+      content: "Reset";
+    }
+
+    td:nth-of-type(6):before {
+      content: "Start / Stop";
+    }
+
+  }
+
+}
+
+
+
+.gradient-right {
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: rem-calc(72);
+    display: block;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: rem-calc(58);
+      height: rem-calc(24);
+      background: linear-gradient(to right, rgba(40, 40, 40, 0), white 50%);
+      margin-left: rem-calc(-118);
+    }
+
+    &.odd {
+      &::after {
+        background: linear-gradient(to right, rgba(40, 40, 40, 0), #f1f1f1 50%);
+      }
+    }
+  }
+}

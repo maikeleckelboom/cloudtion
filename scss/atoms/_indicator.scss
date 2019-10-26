@@ -1,0 +1,45 @@
+@import '../abstracts/base';
+
+@mixin transitionWith500ms {
+  -webkit-transition: width 500ms ease-out, height 500ms ease-out;
+  -moz-transition: width 500ms ease-out, height 500ms ease-out;
+  -o-transition: width 500ms ease-out, height 500ms ease-out;
+  transition: width 500ms ease-out, height 500ms ease-out;
+}
+
+#loading-bar {
+  background-color: #3882ff;
+  height: rem-calc(4);
+  width: 0;
+  position: fixed;
+  z-index: 666000666;
+  @include transitionWith500ms;
+
+  &.no-transition {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+
+  &.top, &.bottom &.left {
+    left: 0;
+  }
+
+  &.top, &.left, &.right {
+    top: 0;
+  }
+
+  &.left, &.right {
+    width: rem-calc(5);
+    height: 0;
+  }
+
+  &.bottom {
+    bottom: 0;
+  }
+
+  &.right {
+    right: 0;
+  }
+}
